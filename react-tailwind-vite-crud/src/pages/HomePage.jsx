@@ -1,5 +1,5 @@
-import AddForm from '../components/AddForm'
-import TodoList from '../components/TodoList'
+import AddForm from '../components/AddForm';
+import TodoList from '../components/TodoList';
 
 export default function HomePage() {
     return (
