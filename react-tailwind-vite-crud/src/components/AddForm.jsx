@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { createTodo } from '../services/todo-service';
 
-export default function AddForm() {
+export default function AddForm({fetchTodoes}) {
 
     const [task, setTask] = useState('');
 
@@ -9,13 +9,13 @@ export default function AddForm() {
         setTask(event.target.value);
     };
 
-
     const submitActionHandler = async (event) => {
-        event.preventDefault();
         try {
-            const { data } = await createTodo(task);
-            console.log(data);
+            event.preventDefault();
+            const response = await createTodo(task);
+            console.log(response);
             setTask('');
+            fetchTodoes();
         } catch (error) {
             console.log(error);
         }
@@ -23,7 +23,7 @@ export default function AddForm() {
 
     return (
         <form onSubmit={submitActionHandler} className='w-full flex gap-1 mt-3' autoComplete='off'>
-            <input type="text" name="task" value={task} onChange={taskChangeHandler} placeholder='task' autoComplete='false' className='h-[50px] grow ' />
+            <input type="text" name="task" value={task} onChange={taskChangeHandler} placeholder='task' autoComplete='off' className='h-[50px] grow ' />
             <button type='submit' className='w-[100px] h-[50px] flex-none btn btn-primary'>Add</button>
         </form>
     )

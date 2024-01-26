@@ -1,24 +1,6 @@
-import { useEffect, useState } from 'react'
-import TodoItem from './TodoItem'
-import { getTodoes } from '../services/todo-service';
+import TodoItem from './TodoItem';
 
-export default function TodoList() {
-
-    const [todoes, setTodoes] = useState([])
-
-    useEffect(() => {
-
-        async function fetchData() {
-            try {
-                const { data } = await getTodoes();
-                setTodoes(data);
-            } catch (error) {
-                console.log(error);
-            }
-        }
-
-        fetchData();
-    })
+export default function TodoList({ todoes }) {
 
     if (todoes && todoes.length > 0) {
         return (

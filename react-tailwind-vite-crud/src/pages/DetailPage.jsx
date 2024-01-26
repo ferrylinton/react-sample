@@ -10,33 +10,30 @@ export default function DetailPage() {
 
     const [todo, setTodo] = useState(null);
 
-    useEffect(() => {
-
-        async function fetchData() {
-            try {
-                const { data } = await getTodo(id);
-                console.log(data);
-                setTodo(data);
-            } catch (error) {
-                console.log(error);
-            }
+    const fetchDataById = async (id) => {
+        try {
+            const response = await getTodo(id);
+            console.log(response);
+            setTodo(response.data);
+        } catch (error) {
+            console.log(error);
         }
+    }
 
-        fetchData();
-    })
+    useEffect(() => {
+        fetchDataById(id);
+    }, [id])
 
     const onDeleteHandler = async () => {
         if (window.confirm('Delete data?')) {
             try {
-                const { data } = await deleteTodo(id);
-                console.log(data)
+                const response = await deleteTodo(id);
+                console.log(response)
                 navigate('/');
             } catch (error) {
                 console.log(error);
             }
-
         }
-
     }
 
     return (
@@ -55,7 +52,8 @@ export default function DetailPage() {
                         <tr>
                             <th>Done</th>
                             <td>
-                                <input type="checkbox" className="w-[25px] h-[25px] accent-green-500 float-left" readOnly checked={todo.done}></input>
+                                {todo.done && <span style={{ color: 'transparent', textShadow: 'rgb(0, 128, 0) 0px 0px 0px' }}>&#10004;</span>}
+                                {!todo.done && <span style={{ color: 'transparent', textShadow: 'rgb(232 81 24) 0px 0px 0px' }}>&#10006;</span>}
                             </td>
                         </tr>
                         <tr>
