@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+
+  body{
+    @apply h-screen;
+    @apply text-stone-700 bg-white;
+  }
+
+  svg {
+    @apply w-[20px] h-[20px] fill-current;
+  }
+
+  .header{
+    @apply z-20 top-0 inset-x-0 bg-white bg-opacity-40;
+    @apply flex justify-center items-center;
+  }
+
+  .header.sticky .nav{
+    @apply z-30 fixed top-[20px] m-auto  animate-slideDownAndFade;
+    @apply bg-green-500 border-opacity-40  bg-opacity-70 shadow-lg shadow-black/[0.03] backdrop-blur-[0.5rem] rounded-full;
+  }
+  
+  .nav{
+    @apply  flex gap-5 px-5 py-3;
+  }
+
+  .nav-link {
+    @apply flex justify-center items-center gap-2;
+    @apply border border-lime-700 rounded-full py-1 px-5 cursor-pointer;
+    @apply text-lime-700 text-xl;
+  }
+
+  .nav-link.active{
+    @apply text-white  bg-lime-800 bg-opacity-60;
+  }
+
+  .element{
+    @apply min-h-screen w-full flex justify-center items-center;
+    @apply odd:bg-white even:bg-slate-100;
+  }
+
+  .skill{
+    @apply rounded p-3 shadow-[0_8px_30px_rgb(0,0,0,0.12)];
+  }
+
+  .skill h3{
+    @apply text-xl font-bold;
+  }
+
+  .posts{
+    @apply my-2 text-left;
+  }
+
+  .posts a{
+    @apply block py-3 text-lg hover:text-blue-500 hover:underline hover:underline-offset-2;
+  }
+
+}
