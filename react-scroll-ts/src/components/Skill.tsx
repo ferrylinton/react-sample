@@ -1,50 +1,32 @@
+import SkillIcon from "../icons/SkillIcon";
+
 export default function Skill() {
     return (
-        <div className='w-full max-w-3xl py-[100px] flex flex-col items-center gap-8'>
-            <div className="border border-slate-200/80 rounded-xl p-6">
-                <div className="ps-2 mb-2 text-xl font-bold text-center">Java</div>
-                <div className="flex gap-3">
-                    <div className="mb-1 flex justify-start">
-                        <span className="bg-green-400 h-2 w-2 m-2 rounded-full"></span>
-                        <span>Spring Boot</span>
-                    </div>
-                    <div className="mb-1 flex justify-start">
-                        <span className="bg-green-400 h-2 w-2 m-2 rounded-full"></span>
-                        <span>Spring Data JPA</span>
-                    </div>
-                    <div className="mb-1 flex justify-start">
-                        <span className="bg-green-400 h-2 w-2 m-2 rounded-full"></span>
-                        <span>Spring Security</span>
-                    </div>
+        <div className='w-full max-w-3xl flex flex-col items-center gap-5'>
+            <SkillIcon className="element-bg" />
+            <div className="skill">
+                <h3>Java</h3>
+                <div className="flex flex-col md:flex-row gap-3 items-start">
+                    <div className="skill-item">Spring Boot</div>
+                    <div className="skill-item">Spring Data JPA</div>
+                    <div className="skill-item">Spring Security</div>
                 </div>
+            </div>
+            <div className="skill">
+                <h3>Node</h3>
+                <div className="flex flex-col md:flex-row gap-3 items-start">
+                    <div className="skill-item">Express JS</div>
+                    <div className="skill-item">Next JS</div>
+                </div>
+            </div>
+            <div className="skill">
+                <h3>Frontend</h3>
+                <div className="flex flex-col md:flex-row gap-3 items-start">
+                    <div className="skill-item">React JS</div>
+                    <div className="skill-item">Tailwind CSS</div>
+                </div>
+            </div>
 
-            </div>
-            <div className="border border-slate-200/80 rounded-xl p-6">
-                <div className="ps-2 mb-2 text-xl font-bold text-center">Node</div>
-                <div className="flex gap-3">
-                    <div className="mb-1 flex justify-start">
-                        <span className="bg-green-400 h-2 w-2 m-2 rounded-full"></span>
-                        <span>Express JS</span>
-                    </div>
-                    <div className="mb-1 flex justify-start">
-                        <span className="bg-green-400 h-2 w-2 m-2 rounded-full"></span>
-                        <span>Next JS</span>
-                    </div>
-                </div>
-            </div>
-            <div className="border border-slate-200/80 rounded-xl p-6">
-                <div className="ps-2 mb-2 text-xl font-bold text-center">Frontend</div>
-                <div className="flex gap-3">
-                    <div className="mb-1 flex justify-start">
-                        <span className="bg-green-400 h-2 w-2 m-2 rounded-full"></span>
-                        <span>React JS</span>
-                    </div>
-                    <div className="mb-1 flex justify-start">
-                        <span className="bg-green-400 h-2 w-2 m-2 rounded-full"></span>
-                        <span>Tailwind CSS</span>
-                    </div>
-                </div>
-            </div>
         </div>
     )
 }

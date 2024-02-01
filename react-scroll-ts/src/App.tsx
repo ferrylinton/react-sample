@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Element, scrollSpy, animateScroll } from 'react-scroll';
+import { scrollSpy } from 'react-scroll';
 import Blog from './components/Blog';
 import Contact from './components/Contact';
 import Header from './components/Header';
@@ -9,49 +9,33 @@ import Skill from './components/Skill';
 
 export default function App() {
 
-  const [isSticky, setIsSticky] = useState(false);
-
   const [currentTo, setCurrentTo] = useState('home');
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsSticky(window.scrollY >= 120);
-    };
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  useEffect(() => {
-
-    // Updating scrollSpy when the component mounts.
     scrollSpy.update();
 
   }, []);
 
   const handleSetActive = (to: string) => {
     setCurrentTo(to);
-    //animateScroll.scrollMore(-10);
   };
 
   return (
     <>
-      <Header isSticky={isSticky} currentTo={currentTo} onSetActive={handleSetActive}/>
-      <Element name="home" className='element'>
+      <Header currentTo={currentTo} onSetActive={handleSetActive}/>
+      <div id="profile" className='element'>
         <Profile/>
-      </Element>
-      <Element name="skill" className='element'>
+      </div>
+      <div id="skill" className='element'>
         <Skill/>
-      </Element>
-      <Element name="blog" className='element'>
+      </div>
+      <div id="blog" className='element'>
         <Blog/>
-      </Element>
-      <Element name="contact" className='element'>
+      </div>
+      <div id="contact" className='element'>
         <Contact />
-      </Element>
+      </div>
     </>
   )
 }

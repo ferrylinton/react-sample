@@ -1,22 +1,21 @@
 import BlogIcon from "../icons/BlogIcon"
 import ContactIcon from "../icons/ContactIcon"
-import HomeIcon from "../icons/HomeIcon"
+import ProfileIcon from "../icons/ProfileIcon"
 import SkillIcon from "../icons/SkillIcon"
 import ScrollLink from "./ScrollLink"
 
 type Props = {
-  isSticky: boolean,
   currentTo: string,
   onSetActive?(to: string, element: HTMLElement): void
 }
 
-export default function Header({ isSticky, currentTo, onSetActive }: Props) {
+export default function Header({ currentTo, onSetActive }: Props) {
   return (
-    <header className={isSticky ? 'header sticky' : 'header'}>
+
       <nav className="nav">
-        <ScrollLink to="home" currentTo={currentTo} onSetActive={onSetActive}>
-          <HomeIcon />
-          <span>Home</span>
+        <ScrollLink to="profile" currentTo={currentTo} onSetActive={onSetActive}>
+          <ProfileIcon />
+          <span>Profile</span>
         </ScrollLink>
         <ScrollLink to="skill" currentTo={currentTo} onSetActive={onSetActive}>
           <SkillIcon />
@@ -31,6 +30,6 @@ export default function Header({ isSticky, currentTo, onSetActive }: Props) {
           <span>Contact</span>
         </ScrollLink>
       </nav>
-    </header>
+
   )
 }
